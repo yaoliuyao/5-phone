@@ -19,7 +19,7 @@
 			display: block;
 			margin-bottom: 10px;
 		}
-		form {
+		.a-form {
 			padding-bottom: 1em;
 			width: 98%;
 			display: flex;
@@ -41,10 +41,17 @@
 	</header>
 	
 	<div>
-		<form action='${r}/add' method='post'>
+		<form class="a-form" action='${r}/add' method='post'>
 			<input type='text' name='name' placeholder='手机名'>
 			<input type='number' name='price' placeholder='价格'>
 			<button>添加手机</button>
+		</form>
+	</div>
+	
+	<div style="margin-top: 2em">
+		<form action="${r}/list">
+			<input name="tiaojian" placeholder="请输入条件">
+			<button>搜索</button>
 		</form>
 	</div>
 	

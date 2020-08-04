@@ -16,8 +16,15 @@ import nfit.phone.dao.PhoneDAO;
 public class PhoneListServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String tiaojian = req.getParameter("tiaojian");
 		try {
-			List<Phone> phones = new PhoneDAO().list();
+			List<Phone> phones = null;
+			
+			if (tiaojian == null || tiaojian.equals("")) {
+				phones = new PhoneDAO().list();
+			} else {
+				phones= new PhoneDAO().list(tiaojian);
+			}
 
 			req.setAttribute("xxx", phones);
 			req.getRequestDispatcher("/jsp/phoneList.jsp").forward(req, resp);
